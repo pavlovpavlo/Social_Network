@@ -1,0 +1,53 @@
+.dialogs{
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+}
+.dialogs__items{
+  padding: 15px;
+  border-right: 1px solid #343434;
+}
+.dialogs__items .active{
+  color: gold;
+}
+.dialog{
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.dialog .img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 20px;
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQPe3W7c27J2AdfpXp0YoEQVfmsUMN_piZc1fhjPHhhtXbycbl) center;
+  background-size: cover;
+}
+.dialog a{
+  color: white;
+  text-decoration: none;
+}
+.messages{
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.messages .message{
+  color: white;
+}
+.messages__input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.messages__input textarea{
+  text-align: center;
+  height: 40px;
+  border-radius: 20px;
+  padding: 0 10px;
+  width: 50%;
+  margin-right: 10px;
+}
