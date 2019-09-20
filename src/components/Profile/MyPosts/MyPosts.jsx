@@ -1,22 +1,21 @@
 import React from 'react';
 import myposts_css from'./MyPosts.module.css';
 import Post from './Post/Post';
-import {addPostActionCreator, updateNewPostTextActionCreator} from '../../../redux/profile_reducer';
 
 /* ref создание ссылки для привязки к элементу*/
 /** current текущий элемент для ссылки */
 const MyPosts = (props)=>{
 
-    let postsElement = props.posts.map(post=><Post message={post.message} likesCount={post.likesCount}/>);
+    let postsElement = props.profilePage.posts.map(post=><Post message={post.message} likesCount={post.likesCount}/>);
 
     let newPostElement = React.createRef();
 
-    let addPost = ()=>{
-        props.dispatch(addPostActionCreator());
+    let onAddPost = ()=>{
+        props.addPost();
     }
     let onPostChange = () =>{
         let text = newPostElement.current.value;
-        props.dispatch(updateNewPostTextActionCreator(text));
+        props.updateNewPostText(text);
     }
 
     return(
@@ -24,9 +23,9 @@ const MyPosts = (props)=>{
             <h3>My posts</h3>
             <div>
                 <div> 
-                    <textarea ref = {newPostElement} value={props.newPostText} onChange = {onPostChange} cols="50" rows="10"/>
+                    <textarea ref = {newPostElement} value={props.profilePage.newPostText} onChange = {onPostChange} cols="50" rows="10"/>
                 </div>
-                <button onClick = {addPost} >Add post</button>
+                <button onClick = {onAddPost} >Add post</button>
             </div>
             <div className={myposts_css.posts}>
                 {postsElement}
