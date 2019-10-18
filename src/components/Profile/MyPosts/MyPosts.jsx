@@ -6,7 +6,7 @@ import Post from './Post/Post';
 /** current текущий элемент для ссылки */
 const MyPosts = (props)=>{
 
-    let postsElement = props.profilePage.posts.map(post=><Post message={post.message} likesCount={post.likesCount}/>);
+    let postsElement = props.profilePage.posts.map(post=><Post key={post.id} message={post.message} likesCount={post.likesCount}/>);
 
     let newPostElement = React.createRef();
 
